@@ -1,9 +1,9 @@
 package fr.esiea.tetris.model;
 
 public class Model {
-	public Score score;
-	public Board board;
-	public Tetrimino tetrimino;
+	private Score score;
+	private Board board;
+	private Tetrimino tetrimino;
 	private int nextX;
 	private int nextY;
 	private int[][] nextArray;
@@ -14,6 +14,18 @@ public class Model {
 		tetrimino = new Tetrimino();
 		this.newTetrimino();
 		board.init();
+	}
+	
+	public Score getScore() {
+		return this.score;
+	}
+	
+	public Board getBoard() {
+		return this.board;
+	}
+	
+	public Tetrimino getTetrimino(){
+		return this.tetrimino;
 	}
 	
 	public void newTetrimino()

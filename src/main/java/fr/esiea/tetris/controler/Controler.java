@@ -9,7 +9,6 @@ import fr.esiea.tetris.view.*;
 public class Controler {
 	private Model model;
 	private View view;
-	private Score score;
 	private KeyListener keyListener;
 	private int keyCode;
 	private boolean endOfGame; 
@@ -19,7 +18,6 @@ public class Controler {
 	public Controler() {
 		this.model = new Model();
 		this.view = new View();
-		this.score = new Score();
 		this.endOfGame = false;
 		this.keyCode = 0;
 		this.currentTime = 0;
@@ -86,7 +84,7 @@ public class Controler {
 	
 	private void step() {
 		//si des lignes sont complètes, on clean et on incrémente le score
-		score.incrementScore(model.board.checkLine());
+		model.getScore().incrementScore(model.getBoard().checkLine());
 		model.anchorTetrimino();
 		model.newTetrimino();
 		view.displayBoard();
