@@ -28,10 +28,6 @@ public class View extends JFrame{
 		setVisible(true);
 	}
 	
-	public ScorePanel getScore() {
-		return this.score;
-	}
-	
 	public BoardPanel getBoard() {
 		return this.board;
 	}
