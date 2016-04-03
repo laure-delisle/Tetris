@@ -12,6 +12,8 @@ public class Model {
 		score = new Score();
 		board = new Board();
 		tetrimino = new Tetrimino();
+		this.newTetrimino();
+		board.init();
 	}
 	
 	public void newTetrimino()
@@ -21,35 +23,43 @@ public class Model {
 		nextY = 3;
 	}
 	
-	public void turnTetrimino() {
+	public boolean turnTetrimino() {
 		nextArray = tetrimino.arrayOrientations[(tetrimino.orientation+1)%4];
 		if (! blocked()) {
 			tetrimino.turn();
+			return true;
 		}
+		return false;
 	}
 	
-	public void moveLeft() {
+	public boolean moveLeft() {
 		nextY = tetrimino.posY - 1;
 		nextArray = tetrimino.array;
 		if (! blocked()) {
 			tetrimino.left();
+			return true;
 		}
+		return false;
 	}
 
-	public void moveRight() {
+	public boolean moveRight() {
 		nextY = tetrimino.posY + 1;
 		nextArray = tetrimino.array;
 		if (! blocked()) {
 			tetrimino.right();
+			return true;
 		}
+		return false;
 	}
 
-	public void moveDown() {
+	public boolean moveDown() {
 		nextX = tetrimino.posX + 1;
 		nextArray = tetrimino.array;
 		if (! blocked()) {
 			tetrimino.down();
+			return true;
 		}
+		return false;
 	}
 	
 	public boolean blocked(){
