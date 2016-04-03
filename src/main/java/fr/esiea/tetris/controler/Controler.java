@@ -31,25 +31,37 @@ public class Controler {
 
 				if(keyCode == KeyEvent.VK_LEFT){
 					if (model.moveLeft()) {
-						view.displayBoard();
+						view.displayBoard(model.getBoard().boardArray,
+										  model.getTetrimino().tetriminoArray,
+										  model.getTetrimino().posX,
+										  model.getTetrimino().posY);
 					}
 				}
 
 				if(keyCode == KeyEvent.VK_RIGHT){
 					if (model.moveRight()) {
-						view.displayBoard();
+						view.displayBoard(model.getBoard().boardArray,
+										  model.getTetrimino().tetriminoArray,
+										  model.getTetrimino().posX,
+										  model.getTetrimino().posY);
 					}
 				}
 
 				if(keyCode == KeyEvent.VK_DOWN){
 					if (model.moveDown()) {
-						view.displayBoard();
+						view.displayBoard(model.getBoard().boardArray,
+										  model.getTetrimino().tetriminoArray,
+										  model.getTetrimino().posX,
+										  model.getTetrimino().posY);
 					}
 				}
 
 				if(keyCode == KeyEvent.VK_SPACE){
 					if (model.turnTetrimino()) {
-						view.displayBoard();
+						view.displayBoard(model.getBoard().boardArray,
+										  model.getTetrimino().tetriminoArray,
+										  model.getTetrimino().posX,
+										  model.getTetrimino().posY);
 					}
 				}
 				e.consume();
@@ -74,7 +86,10 @@ public class Controler {
 				currentTime = System.currentTimeMillis();
 			
 			if (model.moveDown()) {
-				view.displayBoard();
+				view.displayBoard(model.getBoard().boardArray,
+								  model.getTetrimino().tetriminoArray,
+								  model.getTetrimino().posX,
+								  model.getTetrimino().posY);
 			}
 			else {
 				this.step();
@@ -83,11 +98,15 @@ public class Controler {
 	}
 	
 	private void step() {
+		//on ajoute la pièce à la grille
+		model.anchorTetrimino();
 		//si des lignes sont complètes, on clean et on incrémente le score
 		model.getScore().incrementScore(model.getBoard().checkLine());
-		model.anchorTetrimino();
 		model.newTetrimino();
-		view.displayBoard();
+		view.displayBoard(model.getBoard().boardArray,
+						  model.getTetrimino().tetriminoArray,
+						  model.getTetrimino().posX,
+						  model.getTetrimino().posY);
 		endOfGame = model.checkEndOfGame();
 	}
 	

@@ -36,9 +36,11 @@ public class View extends JFrame{
 		return this.board;
 	}
 
-	public void displayBoard() {
-		// TODO Auto-generated method stub
+	public void displayBoard(int[][] gridArray, int[][] tetriminoArray, int tetX, int tetY) {
+		board.colorizeBoard(gridArray);
+		board.colorizeTetrimino(gridArray, tetriminoArray, tetX, tetY);
 		
 	}
+	
 
 }

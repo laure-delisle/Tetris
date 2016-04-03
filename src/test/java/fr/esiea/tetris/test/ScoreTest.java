@@ -15,7 +15,7 @@ public class ScoreTest {
 	@Test
 	public void shouldIncrementScore() {
 		Score score = new Score();
-		score.incrementScore();
+		score.incrementScore(1);
 		assertEquals(score.getScore(),10);
 	}
 	

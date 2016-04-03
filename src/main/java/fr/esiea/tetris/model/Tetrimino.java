@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Tetrimino {
 	
-	public int[][] array;
+	public int[][] tetriminoArray;
 	public int posX;
 	public int posY;
 	public int[][][] arrayOrientations;
@@ -51,12 +51,12 @@ public class Tetrimino {
 			this.arrayOrientations = L;
 			break;
 		}
-		this.array = arrayOrientations[orientation];
+		this.tetriminoArray = arrayOrientations[orientation];
 	}
 	
 	public void turn() {
 		this.orientation = (orientation+1)%4;
-		this.array = arrayOrientations[orientation];
+		this.tetriminoArray = arrayOrientations[orientation];
 	}
 	
 	public void left() {

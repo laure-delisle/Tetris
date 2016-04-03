@@ -19,10 +19,10 @@ public class TetriminoTest {
 	public void shouldCreateTetrimino() {
 		Tetrimino tetrimino = new Tetrimino();
 		tetrimino.init();
-		int id = tetrimino.array[0][1];
+		int id = tetrimino.tetriminoArray[0][1];
 		if (id == 0)
-			id = tetrimino.array[0][2];
-		assertArrayEquals(tetrimino.array,expected[id-1]);
+			id = tetrimino.tetriminoArray[0][2];
+		assertArrayEquals(tetrimino.tetriminoArray,expected[id-1]);
 	}
 	
 	@Test
@@ -31,9 +31,9 @@ public class TetriminoTest {
 		int[][] beforeTurn = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,1,0,0}};
 		int[][] afterTurn = {{1,1,1,1},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 		int[][][] orientations = { {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,1,0,0}},{{1,1,1,1},{0,0,0,0},{0,0,0,0},{0,0,0,0}},{{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,1,0,0}},{{1,1,1,1},{0,0,0,0},{0,0,0,0},{0,0,0,0}} };
-		tetrimino.array = beforeTurn;
+		tetrimino.tetriminoArray = beforeTurn;
 		tetrimino.arrayOrientations = orientations;
 		tetrimino.turn();
-		assertArrayEquals(tetrimino.array,afterTurn);
+		assertArrayEquals(tetrimino.tetriminoArray,afterTurn);
 	}
 }
