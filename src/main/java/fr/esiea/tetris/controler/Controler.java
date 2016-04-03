@@ -117,6 +117,7 @@ public class Controler {
 	private void notifyEnd(){
 		view.end(model.getScore().getScore());
 	}
+
 }
 
 

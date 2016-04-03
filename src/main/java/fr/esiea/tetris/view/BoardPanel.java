@@ -39,10 +39,6 @@ public class BoardPanel extends JPanel {
 		}
 	}
 	
-	public JPanel[][] getGrid() {
-		return this.grid;
-	}
-	
 	private void initColors() {
 	      colors[0] = Color.WHITE;;
 	      colors[1] = Color.CYAN;
@@ -73,5 +69,13 @@ public class BoardPanel extends JPanel {
 					this.grid[tetX+i][tetY+j].setBackground(colors[id]);
 			}
 		}
+	}
+	
+	public JPanel[][] getGrid() {
+		return this.grid;
+	}
+	
+	public Color getColor(int id) {
+		return colors[id];
 	}
 }
