@@ -102,6 +102,7 @@ public class Controler {
 		model.anchorTetrimino();
 		//si des lignes sont complètes, on clean et on incrémente le score
 		model.getScore().incrementScore(model.getBoard().checkLine());
+		view.updateScore(model.getScore().getScore());
 		model.newTetrimino();
 		view.displayBoard(model.getBoard().boardArray,
 						  model.getTetrimino().tetriminoArray,
@@ -111,7 +112,7 @@ public class Controler {
 	}
 	
 	private void notifyEnd(){
-		//TODO
+		view.end(model.getScore().getScore());
 	}
 }
 

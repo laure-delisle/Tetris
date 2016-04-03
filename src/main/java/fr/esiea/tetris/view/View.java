@@ -7,7 +7,7 @@ public class View extends JFrame{
 
 	//automatic
 	private static final long serialVersionUID = 1L;
-	private ScoreLabel score;
+	private ScorePanel score;
 	private BoardPanel board;
 	
 	public View() {
@@ -18,7 +18,7 @@ public class View extends JFrame{
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 
-		score = new ScoreLabel();
+		score = new ScorePanel();
 		add(score, BorderLayout.CENTER);
 
 		board = new BoardPanel();
@@ -28,7 +28,7 @@ public class View extends JFrame{
 		setVisible(true);
 	}
 	
-	public ScoreLabel getScore() {
+	public ScorePanel getScore() {
 		return this.score;
 	}
 	
@@ -42,5 +42,12 @@ public class View extends JFrame{
 		
 	}
 	
+	public void updateScore(int newScore) {
+		score.updateScore(newScore);
+	}
+	
+	public void end(int finalScore) {
+		score.endScore(finalScore);		
+	}
 
 }
