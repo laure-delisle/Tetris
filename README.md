@@ -41,6 +41,10 @@ Nous avons choisi d'implémenter l'architecture MVC. L'ensemble du projet est pa
 Voici un UML simplifié du projet :
 ![Alt text](mvc.png?raw=true "MVC UML")
 
+Cette architecture a permis une implémentation complètement indépendante du Model et de la View. Le Controler est la pierre angulaire de cette architecture. Il reçoit les événements de l'utilisateur (grâce à un listener), et transmet les modifications au Model. Celui-ci indique en retour si des changements sont à prévoir sur la View. Le Controler transmet les modifications visuelles à la View, lors du mouvement des pièces, du changement de score, de ligne complétée, de nouvelle pièce, et de fin de jeu.
+
+Au sein de la View comme du Model, la classe mère agit sur des objets auxiliaires (par exemple la Board, le Tetrimino et le Score pour le Model) et appelle leurs méthodes au besoin selon les informations reçues du Controler.
+
 ### Design patterns
 
 | Design Pattern | Utilisation           | 
@@ -49,6 +53,14 @@ Façade	| 	Utilisé pour masquer le contrôleur dans le main. La classe Controle
 Listener | Utilisé par le contrôleur pour récupérer les événements au clavier. Les événements déclenchent des actions de déplacement de la pièce, en appelant des méthodes du modèle. |
 Singleton | Utilisé sur le tetrimino pour s'assurer qu'une seule instance de la classe existe. Dès que le tetrimino est posé, l'instance est "recyclée" pour la pièce suivante.|
 
+### Static analysis & Code coverage
 
+Outils utilisés:
+
+| Outil | Utilisation           | 
+| :----- |:-------------| 
+FindBugs | Analyse statique. Identification du code redondant, du code non utilisé. |
+EclEmma | Code coverage. Identification du code utilisé lors de l'exécution de l'application Java, et du code peu utilisé qui a été factorisé de façon inutile. Identification du code couvert par les tests JUnit.
+Code Coverage = 74%. |
 
 
