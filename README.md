@@ -17,7 +17,9 @@ mvn clean install && java -jar ./target/*.jar
 
 ### Features
 - Interface graphique (swing)
-- Commandes clavier (space/left/right/down)
+- Commandes clavier (tourner/gauche/droite/descendre)
+- 7 pièces originales (I,O,T,S,Z,J,L) en couleur
+- Détection et suppression de ligne pleine
 - Score
 - Fin de jeu
 
