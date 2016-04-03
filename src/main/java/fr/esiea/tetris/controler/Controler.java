@@ -13,6 +13,8 @@ public class Controler {
 	private KeyListener keyListener;
 	private int keyCode;
 	private boolean endOfGame; 
+	private long currentTime;
+	private long nextStepTime;
 	
 	public Controler() {
 		this.model = new Model();
@@ -20,6 +22,8 @@ public class Controler {
 		this.score = new Score();
 		this.endOfGame = false;
 		this.keyCode = 0;
+		this.currentTime = 0;
+		this.nextStepTime = 0;
 		
 		this.keyListener = new KeyListener() {
 
@@ -59,7 +63,18 @@ public class Controler {
 
 		view.addKeyListener(keyListener);
 		
+		this.gameLoop();
+		this.notifyEnd();
+	}
+	
+	private void gameLoop() {
 		while (! endOfGame) {
+			//wait for step
+			currentTime = System.currentTimeMillis();
+			nextStepTime = currentTime + 500;
+			while(nextStepTime - currentTime > 0)
+				currentTime = System.currentTimeMillis();
+			
 			if (model.moveDown()) {
 				view.displayBoard();
 			}
@@ -67,7 +82,6 @@ public class Controler {
 				this.step();
 			}
 		}
-		this.notifyEnd();
 	}
 	
 	private void step() {
