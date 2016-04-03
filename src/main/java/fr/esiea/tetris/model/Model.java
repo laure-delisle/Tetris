@@ -11,9 +11,10 @@ public class Model {
 	public Model() {
 		score = new Score();
 		board = new Board();
-		tetrimino = new Tetrimino();
+		tetrimino = Tetrimino.getInstance();
 		this.newTetrimino();
 		board.init();
+		nextArray = tetrimino.tetriminoArray;
 	}
 	
 	public Score getScore() {

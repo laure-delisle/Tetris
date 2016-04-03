@@ -27,17 +27,20 @@ public class BoardPanel extends JPanel {
 	private void initGrid() {
 		Dimension blockSize = new Dimension(30,30);
 		for (int i = 0; i < 16; i++)
-	      {
-	         for (int j = 0; j < 10; j++)
-	         {
-	        	//nouvelle case de la grille en tant que jpanel
-	            grid[i][j] = new JPanel();
-	            grid[i][j].setPreferredSize(blockSize);
-	            grid[i][j].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
-	            add(grid[i][j]);
-	         }
-	      }
-		
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				//nouvelle case de la grille en tant que jpanel
+				grid[i][j] = new JPanel();
+				grid[i][j].setPreferredSize(blockSize);
+				grid[i][j].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+				add(grid[i][j]);
+			}
+		}
+	}
+	
+	public JPanel[][] getGrid() {
+		return this.grid;
 	}
 	
 	private void initColors() {

@@ -30,6 +30,14 @@ public class ScorePanel extends JLabel{
 		scoreValue.setVisible(true);
 	}
 	
+	public String getScoreValue() {
+		return scoreValue.getText();
+	}
+	
+	public String getScoreTitle() {
+		return scoreTitle.getText();
+	}
+	
 	public void endScore(int score) {
 		scoreTitle.setText("GAME OVER");
 		scoreValue.setText("SCORE = "+Integer.toString(score));

@@ -19,10 +19,16 @@ public class Tetrimino {
 	private int[][][] J = { {{0,0,6,0},{0,0,6,0},{0,6,6,0},{0,0,0,0}},{{0,0,0,0},{0,6,6,6},{0,0,0,6},{0,0,0,0}},{{0,6,6,0},{0,6,0,0},{0,6,0,0},{0,0,0,0}},{{0,0,0,0},{0,6,0,0},{0,6,6,6},{0,0,0,0}} }; 
 	private int[][][] L = { {{0,7,0,0},{0,7,0,0},{0,7,7,0},{0,0,0,0}},{{0,0,0,0},{0,0,0,7},{0,7,7,7},{0,0,0,0}},{{0,7,7,0},{0,0,7,0},{0,0,7,0},{0,0,0,0}},{{0,0,0,0},{0,7,7,7},{0,7,0,0},{0,0,0,0}} }; 
 	
-	public Tetrimino() {
+	private static Tetrimino INSTANCE = new Tetrimino();
+	
+	private Tetrimino() {
 		random = new Random();
 	}
 	
+	public static Tetrimino getInstance() {
+		return INSTANCE;
+	}
+			
 	public void init() {
 		orientation = 0;
 		posX = 0;

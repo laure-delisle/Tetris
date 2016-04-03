@@ -27,7 +27,6 @@ public class Board {
 				}
 			}
 			if (isLineComplete) {
-				System.out.println("line "+Integer.toString(i)+" complete");
 				lines++;
 				cleanLine(i);
 				isLineComplete = false;
@@ -39,7 +38,6 @@ public class Board {
 	}
 	
 	public void cleanLine(int lineToClean){
-		System.out.println("Clean line "+Integer.toString(lineToClean));
 		for (int i = lineToClean; i >= 0; i--){
 			for (int j = 0; j < 10; j++) {
 				//on vide la ligne
