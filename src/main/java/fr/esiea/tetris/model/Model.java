@@ -62,44 +62,67 @@ public class Model {
 
 	public boolean turnTetrimino() {
 		nextArray = tetrimino.arrayOrientations[(tetrimino.orientation+1)%4];
-		if (! blocked_decor()) {
-			tetrimino.turn();
-			return true;
-		}
-		return false;
+		if (blocked_left())
+			return false;
+		if (blocked_right())
+			return false;
+		if (blocked_down())
+			return false;
+		if (blocked_decor())
+			return false;
+		tetrimino.turn();
+		return true;
 	}
 	
 	public boolean moveLeft() {
 		nextY = tetrimino.posY - 1;
 		nextArray = tetrimino.tetriminoArray;
-		if (! blocked_left()) {
-			tetrimino.left();
-			return true;
+		if (blocked_left())
+		{
+			nextY = tetrimino.posY;
+			return false;
 		}
-		nextY = tetrimino.posY;
-		return false;
+		if (blocked_decor())
+		{
+			nextY = tetrimino.posY;
+			return false;
+		}
+		tetrimino.left();
+		return true;
 	}
 
 	public boolean moveRight() {
 		nextY = tetrimino.posY + 1;
 		nextArray = tetrimino.tetriminoArray;
-		if (! blocked_right()) {
-			tetrimino.right();
-			return true;
+		if (blocked_right())
+		{
+			nextY = tetrimino.posY;
+			return false;
 		}
-		nextY = tetrimino.posY;
-		return false;
+		if (blocked_decor())
+		{
+			nextY = tetrimino.posY;
+			return false;
+		}
+		tetrimino.right();
+		return true;
 	}
 
 	public boolean moveDown() {
 		nextX = tetrimino.posX + 1;
 		nextArray = tetrimino.tetriminoArray;
-		if (! blocked_down()) {
-			tetrimino.down();
-			return true;
+		if (blocked_down())
+		{
+			nextY = tetrimino.posY;
+			return false;
 		}
-		nextX = tetrimino.posX;
-		return false;
+		if (blocked_decor())
+		{
+			nextY = tetrimino.posY;
+			return false;
+		}
+		tetrimino.down();
+		return true;
 	}
 	
 	private boolean blocked_decor(){
@@ -125,8 +148,6 @@ public class Model {
 				}
 			}
 		}
-		if (blocked_decor())
-			return true;
 		return false;
 	}
 
@@ -139,8 +160,6 @@ public class Model {
 				}
 			}
 		}
-		if (blocked_decor())
-			return true;
 		return false;
 	}
 
@@ -153,8 +172,6 @@ public class Model {
 				}
 			}
 		}
-		if (blocked_decor())
-			return true;
 		return false;
 	}
 
