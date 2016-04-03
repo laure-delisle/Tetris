@@ -60,7 +60,5 @@ Outils utilisés:
 | Outil | Utilisation           | 
 | :----- |:-------------| 
 FindBugs | Analyse statique. Identification du code redondant, du code non utilisé. |
-EclEmma | Code coverage. Identification du code utilisé lors de l'exécution de l'application Java, et du code peu utilisé qui a été factorisé de façon inutile. Identification du code couvert par les tests JUnit.
-Code Coverage = 74%. |
-
-
+EclEmma | Code coverage. Identification du code utilisé lors de l'exécution de l'application Java, et du code peu utilisé qui a été factorisé de façon inutile. Identification du code couvert par les tests JUnit. |
+JUnit | Code Coverage = 74%. |
