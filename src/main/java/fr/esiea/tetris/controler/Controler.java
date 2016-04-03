@@ -71,8 +71,11 @@ public class Controler {
 			public void keyTyped(KeyEvent arg0) {}
 		};
 
-		view.addKeyListener(keyListener);
-		
+		view.addKeyListener(keyListener);	
+	}
+	
+	public void play()
+	{
 		this.gameLoop();
 		this.notifyEnd();
 	}

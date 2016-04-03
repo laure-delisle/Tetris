@@ -6,5 +6,6 @@ public class Tetris {
 	public static void main(String[] args) {
 		//facade qui cache l'architecture MVC
 		Controler controler = new Controler();
+		controler.play();
 	}
 }

@@ -12,7 +12,7 @@ public class BoardPanel extends JPanel {
 	//automatic
 	private static final long serialVersionUID = 1L;
 	private JPanel[][] grid;
-	private static Color[] colors;
+	private Color[] colors;
 	
 	public BoardPanel() {
 		GridLayout gridLayout = new GridLayout(16,10);
