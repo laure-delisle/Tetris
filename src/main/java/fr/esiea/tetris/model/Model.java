@@ -1,9 +1,9 @@
 package fr.esiea.tetris.model;
 
 public class Model {
-	Score score;
-	Board board;
-	Tetrimino tetrimino;
+	public Score score;
+	public Board board;
+	public Tetrimino tetrimino;
 	private int nextX;
 	private int nextY;
 	private int[][] nextArray;
@@ -23,6 +23,29 @@ public class Model {
 		nextY = 3;
 	}
 	
+	public boolean checkEndOfGame() {
+		//collision décor dès le placement de la pièce
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++) {
+				if ((board.boardArray[nextX+i][nextY+j] != 0) && (nextArray[i][j] != 0)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public void anchorTetrimino() {
+		nextX = tetrimino.posX;
+		nextY = tetrimino.posY;
+		// ajout du Tetrimino à la board avant de passer au suivant
+		for (int i = 0; i < 20; i++){
+			for (int j = 0; j < 10; j++) {
+				board.boardArray[nextX+i][nextY+j] = tetrimino.array[i][j];
+			}
+		}
+	}
+
 	public boolean turnTetrimino() {
 		nextArray = tetrimino.arrayOrientations[(tetrimino.orientation+1)%4];
 		if (! blocked()) {
@@ -62,7 +85,7 @@ public class Model {
 		return false;
 	}
 	
-	public boolean blocked(){
+	private boolean blocked(){
 		//collision bord droit
 		if (this.blocked_right())
 			return true;
@@ -115,5 +138,7 @@ public class Model {
 		}
 		return false;
 	}
+
+	
 	
 }

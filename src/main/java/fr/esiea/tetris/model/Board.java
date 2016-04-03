@@ -21,9 +21,10 @@ public class Board {
 		for (int i = 0; i < 20; i++){
 			isLineComplete = true;
 			for (int j = 0; j < 10; j++) {
-				if (boardArray[i][j] == 0)
+				if (boardArray[i][j] == 0) {
 					isLineComplete = false;
 					break;
+				}
 			}
 			if (isLineComplete) {
 				lines++;

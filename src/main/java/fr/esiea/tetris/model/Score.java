@@ -8,9 +8,9 @@ public class Score {
 		this.score = 0;
 	}
 	
-	public void incrementScore()
+	public void incrementScore(int nbLines)
 	{
-		this.score += 10;
+		this.score += (10 * nbLines);
 	}
 	
 	public int getScore(){

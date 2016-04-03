@@ -1,5 +1,12 @@
 package fr.esiea.tetris.view;
 
-public class View {
+import javax.swing.JFrame;
+
+public class View extends JFrame{
+
+	public void displayBoard() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
