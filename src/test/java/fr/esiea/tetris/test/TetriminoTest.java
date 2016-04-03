@@ -1,7 +1,5 @@
 package fr.esiea.tetris.test;
 
-import java.util.Arrays;
-
 import org.junit.*;
 
 import static org.junit.Assert.*;
